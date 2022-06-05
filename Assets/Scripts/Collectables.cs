@@ -8,12 +8,16 @@ public class Collectables : MonoBehaviour
     private int pineapples=0;
 
     [SerializeField] private Text pineapplesText;
+
+    [SerializeField] private AudioSource collectionSoundEffect;
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Pineapple"))
         {
             Destroy(other.gameObject);
             pineapples++;
             pineapplesText.text="Pineapples: "+pineapples;
+
+            collectionSoundEffect.Play();
         }
     }
 }
